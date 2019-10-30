@@ -1,5 +1,6 @@
 <html>
 
+
 <head>
     <title>FrontierQueue.es - The Spain-Gibraltar Border Queue Live Stream</title>
     <link href="https://fonts.googleapis.com/css?family=Overpass:400,700&display=swap" rel="stylesheet">
@@ -23,8 +24,8 @@
         body {
             color: #f7fff6;
             font-family: 'Overpass', Arial, sans-serif;
-
             font-size: 18px;
+            background: #051013;
         }
 
         .btn {
@@ -35,21 +36,20 @@
             border-radius: 5px;
             background: #1c3738;
             font-size: 1em;
-            vertical-align: middle;
+            vertical-align:middle;
 
         }
 
         .skewed-bg {
             padding-top: 30px;
-            background: #051013;
             color: #FFF;
-            position: absolute;
+            position: fixed;
             width: 100%;
             top: 0;
-            left: 0;
-            min-height: 100px;
+            left:0;
+            min-height: 50vw;
             overflow: hidden;
-            z-index: -2;
+            z-index:-1;
         }
 
         .skewed-bg::after {
@@ -63,7 +63,7 @@
             width: 100%;
             background: #020202;
             transform: skew(19deg, -180deg);
-            position: absolute;
+            position: fixed;
             left: 0px;
             top: 0px;
             z-index: -1;
@@ -76,7 +76,7 @@
                 color: #FFF;
                 position: fixed;
                 top: 0;
-                min-height: 100px;
+                min-height: 50vw;
                 overflow: hidden;
             }
 
@@ -88,6 +88,7 @@
                 left: 0;
                 right: 0;
                 height: 100%;
+                min-height:50vw;
                 width: 600%;
                 background: #020202;
                 transform: skew(-100deg, -180deg);
@@ -109,9 +110,12 @@
         border: 1px solid red;
     }
 */
+        .gap {
+            height:20px;
+        }
         .lt-grid-container {
             width: 1000px;
-            margin: 0px auto;
+            margin: 0px auto 0px;
             display: grid;
             grid-template-columns: auto 250px 250px;
             grid-template-rows: auto auto auto auto auto auto auto auto;
@@ -125,7 +129,6 @@
                 "lt-socialFooter lt-socialFooter lt-socialFooter"
                 "lt-footer lt-footer lt-footer";
             text-align: center;
-
             grid-column-gap: 10px;
         }
 
@@ -275,7 +278,7 @@
             }
 
         }
-
+        
 
         .qStreamVid {
             position: relative;
@@ -304,7 +307,7 @@
             position: relative;
             display: table-cell;
             text-align: center;
-            padding-top: 10px;
+            padding-top: 20px;
             line-height: 1.1em;
 
         }
@@ -339,7 +342,7 @@
 
             .lt-qTime {
                 padding-top: 30px;
-                padding-left: 0px;
+                padding-left: auto;
             }
 
         }
@@ -347,8 +350,8 @@
 </head>
 
 <body>
-    <div class="skewed-bg">
-        <div class="lt-grid-container">
+    <div class="skewed-bg"></div>
+        <div class="lt-grid-container" style="margin-top:20px;">
             <div class="lt-header">
                 <img src="https://pbs.twimg.com/profile_images/966745003165929472/EJFP3CaF_400x400.jpg" height="200" align="left" style="border-radius:50%;" />
                 <div class="headerText" style="display: table; height: 200px; overflow: hidden;">
@@ -365,7 +368,7 @@
             <div class="lt-qTime">
                 <!--<table width="100%" style="margin:auto auto;vertical-align: middle;" cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                    <td style="text-align: center;">--><a style="font-size:20px;" class="twitter-timeline" data-tweet-limit="1" href="https://twitter.com/frontierqueue?ref_src=twsrc%5Etfw">Tweets by FrontierQueue.es</a>
+                    <td style="text-align: center;">--><a style="font-size:20px;" class="twitter-timeline" data-tweet-limit="1" data-theme="dark" data-link-color="#221d23" href="https://twitter.com/frontierqueue?ref_src=twsrc%5Etfw">Tweets by FrontierQueue.es</a>
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 <!--</td>
                 </tr>
@@ -376,16 +379,15 @@
                     <img src="stream.mjpg" width="1280" height="720">
                 </div>
             </div>
-            <a href="mailto:info@frontierqueue.es">
+            
                 <div class="lt-A1" style="width:100%;display: table; height: 200px; overflow: hidden;">
-                    <div style="display: table-cell; vertical-align: middle;">
+                <div style="display: table-cell; vertical-align: middle;">
 
-                        <a class="btn">Advertise here</a>
+                    <a class="btn" href="mailto:info@frontierqueue.es">Advertise here</a>
 
 
                     </div>
-                </div>
-            </a>
+            </div>
             <div class="lt-A2" style="width:100%;display: table; height: 200px; overflow: hidden;">
                 <div style="display: table-cell; vertical-align: middle;">
 
@@ -404,10 +406,11 @@
             <div class="lt-socialFooter">
                 <table height="100%" style="margin:auto auto;vertical-align: middle;" cellpadding="10" cellspacing="0" border="0">
                     <tr>
-                        <td><img src="https://image.flaticon.com/icons/svg/174/174848.svg" width="30px" /></td>
-                        <td><img src="https://image.flaticon.com/icons/svg/1409/1409937.svg" width="30px" /></td>
-                        <td><img src="https://image.flaticon.com/icons/svg/1409/1409946.svg" width="30px" />
+                        <td><a href="https://www.facebook.com/frontierqueue"><img src="https://en.facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png" width="30px" /></a></td>
+                        <td><a href="https://www.twitter.com/frontierqueue"><img src="https://blog.hootsuite.com/wp-content/uploads/2018/09/Twitter_Logo_Blue-150x150.png" width="30px" /></a></td>
+                        <td><a href="mailto:info@frontierqueue.es"><img src="https://icon-library.net/images/email-us-icon/email-us-icon-8.jpg" width="30px" /></a>
                         </td>
+                        
                     </tr>
                 </table>
             </div>
@@ -416,7 +419,7 @@
                     document.write(new Date().getFullYear());
                 </script>&nbsp;FrontierQueue.es<br /><a href="mailto:info@frontierqueue.es">Contact us</a></div>
         </div>
-    </div>
+        
     <script>
         document.getElementById("theButton").onclick = function() {
             navigator.geolocation.getCurrentPosition(function(position) {
