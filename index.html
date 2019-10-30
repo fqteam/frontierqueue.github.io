@@ -1,0 +1,429 @@
+<html>
+
+<head>
+    <title>FrontierQueue.es - The Spain-Gibraltar Border Queue Live Stream</title>
+    <link href="https://fonts.googleapis.com/css?family=Overpass:400,700&display=swap" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149939364-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-149939364-1');
+    </script>
+
+    <script data-ad-client="ca-pub-2248147794942037" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <style>
+        body {
+            color: #f7fff6;
+            font-family: 'Overpass', Arial, sans-serif;
+
+            font-size: 18px;
+        }
+
+        .btn {
+            margin: 30px auto;
+            width: 200px;
+            text-align: center;
+            padding: 15px 30px 10px;
+            border-radius: 5px;
+            background: #1c3738;
+            font-size: 1em;
+            vertical-align: middle;
+
+        }
+
+        .skewed-bg {
+            padding-top: 30px;
+            background: #051013;
+            color: #FFF;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            min-height: 100px;
+            overflow: hidden;
+            z-index: -2;
+        }
+
+        .skewed-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: -150vw;
+            left: 0;
+            right: 0;
+            height: 700%;
+            width: 100%;
+            background: #020202;
+            transform: skew(19deg, -180deg);
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: -1;
+        }
+
+
+        @media only screen and (max-width: 1000px) {
+            .skewed-bg {
+                background: #051013;
+                color: #FFF;
+                position: fixed;
+                top: 0;
+                min-height: 100px;
+                overflow: hidden;
+            }
+
+            .skewed-bg::after {
+                content: '';
+                position: fixed;
+                top: 0;
+                bottom: -150vw;
+                left: 0;
+                right: 0;
+                height: 100%;
+                width: 600%;
+                background: #020202;
+                transform: skew(-100deg, -180deg);
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                z-index: -1;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: #f7fff6;
+            font-size: 0.9em !important;
+        }
+
+        /*
+    .lt-grid-container * {
+        border: 1px solid red;
+    }
+*/
+        .lt-grid-container {
+            width: 1000px;
+            margin: 0px auto;
+            display: grid;
+            grid-template-columns: auto 250px 250px;
+            grid-template-rows: auto auto auto auto auto auto auto auto;
+            grid-template-areas:
+                "lt-header lt-header lt-A1"
+                "lt-qStream lt-qStream lt-qTime"
+                "lt-qStream lt-qStream lt-A2"
+                "lt-mainText lt-mainText lt-mainText"
+                "lt-A3 lt-A3 lt-A3"
+                "lt-moreText lt-moreText lt-moreText"
+                "lt-socialFooter lt-socialFooter lt-socialFooter"
+                "lt-footer lt-footer lt-footer";
+            text-align: center;
+
+            grid-column-gap: 10px;
+        }
+
+        .lt-header {
+            grid-area: lt-header;
+        }
+
+        .lt-qTime {
+            grid-area: lt-qTime;
+            padding-left: 10px;
+            width: 100%;
+        }
+
+        .lt-qTime td {
+
+            font-size: 30px;
+        }
+
+        .lt-qStream {
+            grid-area: lt-qStream;
+            margin-top: 30px;
+        }
+
+        .lt-A1 {
+            grid-area: lt-A1;
+            margin: 10px;
+        }
+
+        .lt-A2 {
+            grid-area: lt-A2;
+            height: 190px !important;
+            margin: 10px;
+        }
+
+        .lt-mainText {
+            grid-area: lt-mainText;
+            font-size: 20px;
+        }
+
+        .lt-A3 {
+            grid-area: lt-A3;
+            width: 80%;
+            margin: 10px auto 30px;
+            padding: 30px;
+        }
+
+        .lt-moreText {
+            grid-area: lt-moreText;
+            font-size: 16px;
+        }
+
+        .lt-socialFooter {
+            grid-area: lt-socialFooter;
+            margin: 30px auto;
+        }
+
+        .lt-footer {
+            grid-area: lt-footer;
+        }
+
+        .lt-A1,
+        .lt-A2,
+        .lt-A3 {
+            border: 2px dashed #221d23;
+
+        }
+
+        .lt-3 {
+            width: 80%;
+        }
+
+        @media all and (-ms-high-contrast:none) {
+            .lt-grid-container {
+                display: -ms-grid;
+                -ms-grid-columns: auto 20% 20%;
+                -ms-grid-rows: auto auto auto auto auto auto auto auto;
+            }
+
+            .lt-header {
+                -ms-grid-row: 1;
+                -ms-grid-row-span: 1;
+                -ms-grid-column: 1;
+                -ms-grid-column-span: 2;
+            }
+
+            .lt-qTime {
+                -ms-grid-row: 1;
+                -ms-grid-row-span: 1;
+                -ms-grid-column: 3;
+                -ms-grid-column-span: 1;
+            }
+
+            .lt-qStream {
+                -ms-grid-row: 2;
+                -ms-grid-row-span: 2;
+                -ms-grid-column: 1;
+                -ms-grid-column-span: 2;
+            }
+
+            .lt-A1 {
+                -ms-grid-row: 2;
+                -ms-grid-row-span: 1;
+                -ms-grid-column: 3;
+                -ms-grid-column-span: 1;
+            }
+
+            .lt-A2 {
+                -ms-grid-row: 3;
+                -ms-grid-row-span: 1;
+                -ms-grid-column: 3;
+                -ms-grid-column-span: 1;
+            }
+
+            .lt-mainText {
+                -ms-grid-row: 4;
+                -ms-grid-row-span: 1;
+                -ms-grid-column: 1;
+                -ms-grid-column-span: 3;
+            }
+
+            .lt-A3 {
+                -ms-grid-row: 5;
+                -ms-grid-row-span: 1;
+                -ms-grid-column: 1;
+                -ms-grid-column-span: 3;
+            }
+
+            .lt-moreText {
+                -ms-grid-row: 6;
+                -ms-grid-row-span: 1;
+                -ms-grid-column: 1;
+                -ms-grid-column-span: 3;
+            }
+
+            .lt-socialFooter {
+                -ms-grid-row: 7;
+                -ms-grid-row-span: 1;
+                -ms-grid-column: 1;
+                -ms-grid-column-span: 3;
+            }
+
+            .lt-footer {
+                -ms-grid-row: 8;
+                -ms-grid-row-span: 1;
+                -ms-grid-column: 1;
+                -ms-grid-column-span: 3;
+            }
+
+        }
+
+
+        .qStreamVid {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .qStreamVid img,
+        .qStreamVid object,
+        .qStreamVid embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .headerText {
+            font-family: 'Overpass', Arial, sans-serif;
+            font-size: 90px;
+            margin: auto auto;
+            vertical-align: middle;
+            position: relative;
+            display: table-cell;
+            text-align: center;
+            padding-top: 10px;
+            line-height: 1.1em;
+
+        }
+
+        @media only screen and (max-width: 1000px) {
+
+            .lt-grid-container {
+                display: grid;
+                width: 90%;
+                grid-template-columns: 100%;
+                grid-template-rows: auto auto auto auto auto auto auto auto auto;
+                grid-template-areas: "lt-header""lt-qStream""lt-qTime""lt-mainText""lt-A1""lt-moreText""lt-A2""lt-socialFooter""lt-footer";
+                grid-row-gap: 10px;
+            }
+
+            .lt-A1,
+            .lt-A2 {
+                height: 250px;
+            }
+
+            .lt-3 {
+                width: 100%;
+            }
+
+            .lt-A3 {
+                display: none;
+            }
+
+            .headerText {
+                font-size: 8vw;
+            }
+
+            .lt-qTime {
+                padding-top: 30px;
+                padding-left: 0px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="skewed-bg">
+        <div class="lt-grid-container">
+            <div class="lt-header">
+                <img src="https://pbs.twimg.com/profile_images/966745003165929472/EJFP3CaF_400x400.jpg" height="200" align="left" style="border-radius:50%;" />
+                <div class="headerText" style="display: table; height: 200px; overflow: hidden;">
+
+                    <div style="display: table-cell; vertical-align: middle;font-weight:800;">
+
+                        FRONTIER<br />
+                        QUEUE.ES
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="lt-qTime">
+                <!--<table width="100%" style="margin:auto auto;vertical-align: middle;" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td style="text-align: center;">--><a style="font-size:20px;" class="twitter-timeline" data-tweet-limit="1" href="https://twitter.com/frontierqueue?ref_src=twsrc%5Etfw">Tweets by FrontierQueue.es</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <!--</td>
+                </tr>
+            </table>-->
+            </div>
+            <div class="lt-qStream">
+                <div class="qStreamVid">
+                    <img src="stream.mjpg" width="1280" height="720">
+                </div>
+            </div>
+            <a href="mailto:info@frontierqueue.es">
+                <div class="lt-A1" style="width:100%;display: table; height: 200px; overflow: hidden;">
+                    <div style="display: table-cell; vertical-align: middle;">
+
+                        <a class="btn">Advertise here</a>
+
+
+                    </div>
+                </div>
+            </a>
+            <div class="lt-A2" style="width:100%;display: table; height: 200px; overflow: hidden;">
+                <div style="display: table-cell; vertical-align: middle;">
+
+                    <a class="btn" href="mailto:info@frontierqueue.es">Advertise here</a>
+
+
+                </div>
+            </div>
+            <div class="lt-mainText">
+                <h1>24/7 Live Video Stream</h1>
+                <p>Check the status of the vehicle queue from Spain into Gibraltar.</p>
+                <p>Something wrong? <a href="mailto:info@frontierqueue.es">Let us know</a></p>
+            </div>
+            <div class="lt-A3"><a class="btn" href="mailto:info@frontierqueue.es">Advertise here</a></div>
+            <div class="lt-moreText"></div>
+            <div class="lt-socialFooter">
+                <table height="100%" style="margin:auto auto;vertical-align: middle;" cellpadding="10" cellspacing="0" border="0">
+                    <tr>
+                        <td><img src="https://image.flaticon.com/icons/svg/174/174848.svg" width="30px" /></td>
+                        <td><img src="https://image.flaticon.com/icons/svg/1409/1409937.svg" width="30px" /></td>
+                        <td><img src="https://image.flaticon.com/icons/svg/1409/1409946.svg" width="30px" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="lt-footer">
+                &copy;&nbsp;<script type="text/javascript">
+                    document.write(new Date().getFullYear());
+                </script>&nbsp;FrontierQueue.es<br /><a href="mailto:info@frontierqueue.es">Contact us</a></div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("theButton").onclick = function() {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                document.getElementById("textArea").innerHTML = "you are... " + position.coor$
+            });
+        }
+    </script>
+</body>
+
+</html>
