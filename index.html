@@ -17,7 +17,15 @@
         gtag('config', 'UA-149939364-1');
     </script>
     <script data-ad-client="ca-pub-2248147794942037" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    
+    <script>
+        //Close with Escape Button
+        window.onkeydown = function(event) {
+            if (event.keyCode === 27) {
+                document.getElementById('close').click();
+            }
+        };
+    </script>
+
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
@@ -120,6 +128,12 @@
         a {
             text-decoration: none;
             color: #f7fff6;
+            font-size: 0.9em !important;
+        }
+        
+        li a {
+            text-decoration: underline !important;
+            color: #f7fff6 !important;
             font-size: 0.9em !important;
         }
 
@@ -365,6 +379,242 @@
             }
 
         }
+
+        /*Modal start*/
+        .modal {
+            left: 50%;
+            margin: -250px 0 0 -32%;
+            opacity: 0;
+            position: absolute;
+            top: -50%;
+            visibility: hidden;
+            width: 65%;
+            box-shadow: 0 3px 3px rgba(0, 0, 0, .25);
+            box-sizing: border-box;
+            transition: all .4s ease-in-out;
+            -moz-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+
+        }
+
+        .modal:target {
+            opacity: 1;
+            top: 40%;
+            visibility: visible;
+        }
+
+        .modal .header,
+        .modal .footer {
+            border-bottom: 1px solid #e7e7e7;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .modal .footer {
+            border: none;
+            border-top: 1px solid #e7e7e7;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .modal h2 {
+            margin: 0;
+            color: #fff;
+        }
+
+        .modal .btn {
+            float: right;
+        }
+
+        .modal .copy,
+        .modal .header,
+        .modal .footer {
+            padding: 5px;
+            color: #fff;
+            text-align:left;
+        }
+
+        .modal-content {
+            background: #000;
+            position: relative;
+            z-index: 20;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .modal .copy {
+            background: #000;
+        }
+
+        .modal .overlay {
+            background-color: #000;
+            background: rgba(0, 0, 0, .8);
+            height: 100%;
+            left: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .copy ul li a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        /* Responsive Options */
+        @media screen and (min-width: 768px) {
+            .modal {
+                width: 600px;
+                margin: -250px 0px 0px -18.2%;
+                top: -50%;
+            }
+        }
+
+        .modalcss-button {
+            /* Structure */
+            display: inline-block;
+            zoom: 1;
+            line-height: normal;
+            white-space: nowrap;
+            vertical-align: middle;
+            text-align: center;
+            cursor: pointer;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        /* Firefox: Get rid of the inner focus border */
+        .modalcss-button::-moz-focus-inner {
+            padding: 0;
+            border: 0;
+        }
+
+        .modalcss-button {
+            font-family: inherit;
+            font-size: 100%;
+            padding: 0.5em 1em;
+            color: #444;
+            /* rgba not supported (IE 8) */
+            color: rgba(0, 0, 0, 0.80);
+            /* rgba supported */
+            border: 1px solid #999;
+            /*IE 6/7/8*/
+            border: none rgba(0, 0, 0, 0);
+            /*IE9 + everything else*/
+            background-color: #E6E6E6;
+            text-decoration: none;
+            border-radius: 2px;
+        }
+
+        .modalcss-button-hover,
+        .modalcss-button:hover,
+        .modalcss-button:focus {
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000', GradientType=0);
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.10)));
+            background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.10));
+            background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.10));
+            background-image: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.10));
+            background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.10));
+        }
+
+        .modalcss-button:focus {
+            outline: 0;
+        }
+
+        .modalcss-button-active,
+        .modalcss-button:active {
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 6px rgba(0, 0, 0, 0.20) inset;
+            border-color: #000\9;
+        }
+
+        .modalcss-button[disabled],
+        .modalcss-button-disabled,
+        .modalcss-button-disabled:hover,
+        .modalcss-button-disabled:focus,
+        .modalcss-button-disabled:active {
+            border: none;
+            background-image: none;
+            filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+            filter: alpha(opacity=40);
+            -khtml-opacity: 0.40;
+            -moz-opacity: 0.40;
+            opacity: 0.40;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .modalcss-button-hidden {
+            display: none;
+        }
+
+        /* Firefox: Get rid of the inner focus border */
+        .modalcss-button::-moz-focus-inner {
+            padding: 0;
+            border: 0;
+        }
+
+        .modalcss-button-primary,
+        .modalcss-button-selected,
+        a.modalcss-button-primary,
+        a.modalcss-button-selected {
+            background-color: rgb(0, 120, 231);
+            color: #fff;
+        }
+
+        .button-success,
+        .button-error,
+        .button-warning,
+        .button-secondary {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-success {
+            background: rgb(28, 184, 65);
+            /* this is a green */
+        }
+
+        .button-error {
+            background: rgb(202, 60, 60);
+            /* this is a maroon */
+        }
+
+        .button-warning {
+            background: rgb(223, 117, 20);
+            /* this is an orange */
+        }
+
+        .button-secondary {
+            background: rgb(66, 184, 221);
+            /* this is a light blue */
+        }
+
+
+
+        /* Close Button */
+        .box3 {
+            width: 25px;
+            right: 0px;
+            position: absolute;
+            margin: 5px;
+        }
+
+        svg {
+            display: block;
+        }
+
+        .close-x {
+            stroke: white;
+            fill: transparent;
+            stroke-linecap: round;
+            stroke-width: 5;
+        }
     </style>
 </head>
 
@@ -437,11 +687,94 @@
             &copy;&nbsp;<script type="text/javascript">
                 document.write(new Date().getFullYear());
             </script>&nbsp;FrontierQueue.es<br /><a href="mailto:info@frontierqueue.es">Contact us</a>
-            <hr style="height:5px; width:80%;background:#221d23;border:#221d23;border-radius:50%;"><div style="margin:auto auto;font-size:0.8em;font-weight:300;text-align:center;width:80%;"><p>Estimated queue time is just that - an automatically-generated estimation of the current queue time, based on current traffic data, for your convenience only. </p><p>
-FrontierQueue.es takes no responsibility for how you plan your journey in or out of Gibraltar.<br/>
-Our video stream is not recorded, and therefore unfortunately we cannot recover footage for you for any reason. <br/>
-By using this website you agree to FrontierQueue.es’ <a href="/cookies.html" style="color:#999;text-decoration: underline;">Cookies Policy</a> and <a href="/terms.html" style="color:#999;text-decoration: underline;">Terms and Conditions</a>.</p></div></div>
-        
+            <hr style="height:5px; width:80%;background:#221d23;border:#221d23;border-radius:50%;">
+            <div style="margin:auto auto;font-size:0.8em;font-weight:300;text-align:center;width:80%;">
+                <p>Estimated queue time is just that - an automatically-generated estimation of the current queue time, based on current traffic data, for your convenience only. </p>
+                <p>
+                    FrontierQueue.es takes no responsibility for how you plan your journey in or out of Gibraltar.<br />
+                    Our video stream is not recorded, and therefore unfortunately we cannot recover footage for you for any reason. <br />
+                    By using this website you agree to FrontierQueue.es’ <a href="#cookies" style="color:#999;text-decoration: underline;">Cookies Policy</a> and <a href="#terms" style="color:#999;text-decoration: underline;">Terms and Conditions</a>.</p>
+            </div>
+        </div>
+
+
+
+        <div id="terms" class='modal' role="dialog" aria-labelledby="Modal title" aria-describedby="Modal description">
+            <div class="modal-content">
+                <div class="header">
+                    <a href="#" id="close">
+                        <div class="box box3">
+                            <svg viewbox="0 0 40 40">
+                                <path class="close-x" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+                            </svg>
+                        </div>
+                    </a>
+                    <h2>Terms and Conditions</h2>
+
+                </div>
+                <div class="copy">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+                </div>
+            </div>
+            <a href="#">
+                <div class="overlay"></div>
+            </a>
+        </div>
+
+        <div id="cookies" class='modal' role="dialog" aria-labelledby="Modal title" aria-describedby="Modal description">
+            <div class="modal-content">
+                <div class="header">
+                    <a href="#" id="close">
+                        <div class="box box3">
+                            <svg viewbox="0 0 40 40">
+                                <path class="close-x" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+                            </svg>
+                        </div>
+                    </a>
+                    <h2>Cookies Policy</h2>
+
+                </div>
+                <div class="copy">
+                    <p><strong>Last updated:</strong> October 31, 2019</p>
+                    <p>FrontierQueue.es ("us", "we", or "our") uses cookies on the FrontierQueue.es website. By using FrontierQueue.es, you consent to the use of cookies.</p>
+                    <p>Our Cookies Policy explains what cookies are, how we use cookies, how third-parties we may partner with may use cookies on FrontierQueue.es, your choices regarding cookies and further information about cookies.</p>
+
+                    <h3>What are cookies</h3>
+                    <p>Cookies are small pieces of text sent by your web browser by a website you visit. A cookie file is stored in your web browser and allows FrontierQueue.es or a third-party to recognise you and make your next visit easier and the service more useful to you.</p>
+                    <p>Cookies can be "persistent" or "session" cookies. Persistent cookies remain on your personal computer or mobile device when you go offline, while session cookies are deleted as soon as you close your web browser.</p>
+
+                    <h3>How FrontierQueue.es uses cookies</h3>
+                    <p>When you use and access FrontierQueue.es, Google Analytics may place one or more cookies files in your web browser.</p>
+                    <p>We only use cookies for the following purpose:</p>
+                    <ul>
+                        <li>To monitor website usage and performance</li>
+                    </ul>
+                    <p>You can read more about how Google Analytics uses cookies <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage" target="_blank">here</a>.</p>
+
+                    <h3>What are your choices regarding cookies</h3>
+                    <p>If you'd like to delete cookies or instruct your web browser to delete or refuse cookies, please visit the help pages of your web browser. As an European citizen, under GDPR, you have certain individual rights. You can learn more about these rights in this <a href="https://termsfeed.com/blog/gdpr/#Individual_Rights_Under_the_GDPR" target="_blank">GDPR Guide</a>.</p>
+                    <ul>
+                        <li>For the Chrome web browser, please visit this page from Google: <a href="https://support.google.com/accounts/answer/32050" target="_blank">https://support.google.com/accounts/answer/32050</a></li>
+                        <li>For the Internet Explorer web browser, please visit this page from Microsoft: <a href="http://support.microsoft.com/kb/278835" target="_blank">http://support.microsoft.com/kb/278835</a></li>
+                        <li>For the Firefox web browser, please visit this page from Mozilla: <a href="https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored" target="_blank">https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored</a></li>
+                        <li>For the Safari web browser, please visit this page from Apple: <a href="https://support.apple.com/kb/PH21411?locale=en_US" target="_blank">https://support.apple.com/kb/PH21411?locale=en_US</a></li>
+                    </ul>
+                    <p>For any other web browser, please visit your web browser's official web pages.</p>
+                    <h3>Where can you find more information about cookies</h3>
+                    <p>You can learn more about cookies and the following third-party websites:</p>
+                    <ul>
+                        <li>AllAboutCookies: <a href="http://www.allaboutcookies.org/" target="_blank">http://www.allaboutcookies.org/</a></li>
+                        <li>Network Advertising Initiative: <a href="http://www.networkadvertising.org/" target="_blank">http://www.networkadvertising.org/</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <a href="#">
+                <div class="overlay"></div>
+            </a>
+        </div>
+
+
     </div>
 
     <script>
