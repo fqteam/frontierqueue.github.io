@@ -211,7 +211,7 @@
 
         .lt-mainText {
             grid-area: lt-mainText;
-            font-size: 20px;
+            font-size: 1.5rem;
         }
 
         .lt-A3 {
@@ -359,13 +359,12 @@
                 display: grid;
                 width: 90%;
                 grid-template-columns: 100%;
-                grid-template-rows: auto auto auto auto auto auto auto auto auto;
-                grid-template-areas: "lt-header""lt-qStream""lt-qTime""lt-mainText""lt-A1""lt-moreText""lt-A2""lt-socialFooter""lt-footer";
+                grid-template-rows: auto auto auto auto auto auto auto auto;
+                grid-template-areas: "lt-header""lt-qStream""lt-qTime""lt-mainText""lt-A1""lt-moreText""lt-socialFooter""lt-footer";
                 grid-row-gap: 10px;
             }
 
-            .lt-A1,
-            .lt-A2 {
+            .lt-A1 {
                 height: 250px;
             }
 
@@ -373,7 +372,7 @@
                 width: 100%;
             }
 
-            .lt-A3 {
+            .lt-A3,.lt-A2 {
                 display: none;
             }
 
@@ -703,7 +702,7 @@
                 document.write(new Date().getFullYear());
             </script>&nbsp;FrontierQueue.es<br /><a href="mailto:info@frontierqueue.es">Contact us</a>
             <hr style="height:5px; width:80%;background:#221d23;border:#221d23;border-radius:50%;">
-            <div style="margin:auto auto;font-size:0.8em;font-weight:300;text-align:center;width:80%;">
+            <div style="margin:auto auto;font-size:0.7rem;font-weight:300;text-align:center;width:80%;">
                 <p>Estimated queue time is just that - an automatically-generated estimation of the current queue time, based on current traffic data, for your convenience only. </p>
                 <p>
                     FrontierQueue.es takes no responsibility for how you plan your journey in or out of Gibraltar.<br />
