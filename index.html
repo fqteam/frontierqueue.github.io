@@ -13,7 +13,6 @@
             dataLayer.push(arguments);
         }
         gtag('js', new Date());
-
         gtag('config', 'UA-149939364-1');
     </script>
     <script data-ad-client="ca-pub-2248147794942037" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -63,7 +62,6 @@
             background: #1c3738;
             font-size: 1em;
             vertical-align: middle;
-
         }
 
         ol li {
@@ -111,7 +109,6 @@
             top: 0px;
             z-index: -1;
         }
-
 
         @media only screen and (max-width: 1000px) {
             .skewed-bg {
@@ -193,7 +190,6 @@
         }
 
         .lt-qTime td {
-
             font-size: 30px;
         }
 
@@ -243,7 +239,6 @@
         .lt-A2,
         .lt-A3 {
             border: 2px dashed #221d23;
-
         }
 
         .lt-3 {
@@ -326,9 +321,7 @@
                 -ms-grid-column: 1;
                 -ms-grid-column-span: 3;
             }
-
         }
-
 
         .qStreamVid {
             position: relative;
@@ -359,11 +352,9 @@
             text-align: center;
             padding-top: 20px;
             line-height: 1.1em;
-
         }
 
         @media only screen and (max-width: 1000px) {
-
             .lt-grid-container {
                 display: grid;
                 width: 90%;
@@ -394,7 +385,6 @@
                 padding-top: 30px;
                 padding-left: 0px;
             }
-
         }
 
         /*Modal start*/
@@ -411,7 +401,6 @@
             transition: all .4s ease-in-out;
             -moz-transition: all .4s ease-in-out;
             -webkit-transition: all .4s ease-in-out;
-
         }
 
         .modal:target {
@@ -480,10 +469,17 @@
         /* Responsive Options */
         @media screen and (min-width: 768px) {
             .modal {
-                width: 600px;
-                margin: -250px 0px 0px -18.2%;
+                width: 80%;
+                margin: -500px 0px 0px 1%;
                 top: -50%;
+                font-size: 2rem;
+                left: 10%;
             }
+
+            .modal:target {
+                top: 40%;
+            }
+
         }
 
         .modalcss-button {
@@ -611,8 +607,6 @@
             background: rgb(66, 184, 221);
             /* this is a light blue */
         }
-
-
 
         /* Close Button */
         .box3 {
@@ -814,9 +808,8 @@
         }
     </script>
     <script>
-        ​
         var protocol = "HLS";
-        var streamName = "fontierQueueEs";​
+        var streamName = "fontierQueueEs";
         // Step 1: Configure SDK Clients
         var options = {
             accessKeyId: "AKIAYWACQ4UCIHU3YGLO",
@@ -840,7 +833,7 @@
             kinesisVideoArchivedContent.endpoint = new AWS.Endpoint(response.DataEndpoint);​
             // Step 3: Get a Streaming Session URL
             var consoleInfo = 'Fetching ' + protocol + ' Streaming Session URL';
-            console.log(consoleInfo);​
+            console.log(consoleInfo);
             kinesisVideoArchivedContent.getHLSStreamingSessionURL({
                 StreamName: streamName,
                 PlaybackMode: "LIVE",
