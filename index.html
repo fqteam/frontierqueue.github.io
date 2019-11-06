@@ -4,6 +4,10 @@
 <head>
     <title>FrontierQueue.es - The Spain-Gibraltar Border Queue Live Stream</title>
     <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="loader.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.490.0/aws-sdk.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149939364-1"></script>
     <script>
@@ -64,6 +68,19 @@
             font-size: 1em;
             vertical-align: middle;
 
+        }
+
+        #playerContainer,
+        .player {
+            width: 100%;
+            height: auto;
+            min-height: 400px;
+            background-color: black;
+            outline: none;
+        }
+
+        .vjs-big-play-button {
+            display: none !important;
         }
 
         .skewed-bg {
@@ -130,7 +147,7 @@
             color: #f7fff6;
             font-size: 0.9em !important;
         }
-        
+
         li a {
             text-decoration: underline !important;
             color: #f7fff6 !important;
@@ -429,7 +446,7 @@
         .modal .footer {
             padding: 5px;
             color: #fff;
-            text-align:left;
+            text-align: left;
         }
 
         .modal-content {
@@ -645,7 +662,15 @@
         </div>
         <div class="lt-qStream">
             <div class="qStreamVid">
-                <img src="stream.mjpg" width="1280" height="720">
+
+
+                <div id="playerContainer">
+                    <!-- HLS.js elements -->
+                    <video id="hlsjs" class="player" controls autoplay></video>
+                    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+                </div>
+
+
             </div>
         </div>
 
@@ -777,13 +802,67 @@
 
     </div>
 
+
     <script>
-        document.getElementById("theButton").onclick = function() {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                document.getElementById("textArea").innerHTML = "you are... " + position.coor$
-            });
+        var protocol = "HLS";
+        var streamName = "fontierQueueEs";​
+        // Step 1: Configure SDK Clients
+        var options = {
+            accessKeyId: "AKIAYWACQ4UCIHU3YGLO",
+            secretAccessKey: "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",
+            sessionToken: undefined,
+            region: "eu-west-1",
+            endpoint: undefined
         }
+        var kinesisVideo = new AWS.KinesisVideo(options);
+        var kinesisVideoArchivedContent = new AWS.KinesisVideoArchivedMedia(options);​
+        // Step 2: Get a data endpoint for the stream
+        console.log('Fetching data endpoint');
+        kinesisVideo.getDataEndpoint({
+            StreamName: streamName,
+            APIName: "GET_HLS_STREAMING_SESSION_URL"
+        }, function(err, response) {
+            if (err) {
+                return console.error(err);
+            }
+            console.log('Data endpoint: ' + response.DataEndpoint);
+            kinesisVideoArchivedContent.endpoint = new AWS.Endpoint(response.DataEndpoint);​
+            // Step 3: Get a Streaming Session URL
+            var consoleInfo = 'Fetching ' + protocol + ' Streaming Session URL';
+            console.log(consoleInfo);​
+            kinesisVideoArchivedContent.getHLSStreamingSessionURL({
+                StreamName: streamName,
+                PlaybackMode: "LIVE",
+                HLSFragmentSelector: {
+                    FragmentSelectorType: "SERVER_TIMESTAMP",
+                    TimestampRange: undefined
+                },
+                ContainerFormat: "FRAGMENTED_MP4",
+                DiscontinuityMode: "ALWAYS",
+                DisplayFragmentTimestamp: "NEVER",
+                MaxMediaPlaylistFragmentResults: null,
+                Expires: null
+            }, function(err, response) {
+                if (err) {
+                    return console.error(err);
+                }
+                console.log('HLS Streaming Session URL: ' + response.HLSStreamingSessionURL);​
+                // Step 4: Give the URL to the video player.
+                var playerElement = $('#hlsjs');
+                playerElement.show();
+                var player = new Hls();
+                console.log('Created HLS.js Player');
+                player.loadSource(response.HLSStreamingSessionURL);
+                player.attachMedia(playerElement[0]);
+                console.log('Set player source');
+                player.on(Hls.Events.MANIFEST_PARSED, function() {
+                    video.play();
+                    console.log('Starting playback');
+                });
+            });
+        });
     </script>
+    <script src="ui.js"></script>
 </body>
 
 </html>
