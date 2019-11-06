@@ -4,10 +4,6 @@
 <head>
     <title>FrontierQueue.es - The Spain-Gibraltar Border Queue Live Stream</title>
     <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="loader.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.490.0/aws-sdk.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149939364-1"></script>
     <script>
@@ -68,6 +64,10 @@
             font-size: 1em;
             vertical-align: middle;
 
+        }
+
+        ol li {
+            margin-top: 10px;
         }
 
         #playerContainer,
@@ -662,15 +662,11 @@
         </div>
         <div class="lt-qStream">
             <div class="qStreamVid">
-
-
                 <div id="playerContainer">
                     <!-- HLS.js elements -->
                     <video id="hlsjs" class="player" controls autoplay></video>
                     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
                 </div>
-
-
             </div>
         </div>
 
@@ -738,7 +734,15 @@
 
                 </div>
                 <div class="copy">
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+                    <ol>
+                        <li>FrontierQueue.es excludes any warranty, express or implied, as to the quality, accuracy, timeliness, completeness or fitness for a particular purpose of the material on FrontierQueue.es and will not be liable for any claims, penalties, loss, damages or expenses arising from the use or the inability to use the website or app, or from any unauthorised access or alteration of FrontierQueue.es.</li>
+                        <li>FrontierQueue.es makes no warranty that the website is compatible with all computer systems and browsers.</li>
+                        <li>You must not use this website in any way that causes, or may cause, damage to the website or impairment of the availability or accessibility of the Website or in any way which is unlawful, illegal, fraudulent or harmful, or in connection with any unlawful, illegal, fraudulent or harmful purpose or activity.</li>
+                        <li>FrontierQueue.es does not record any data, video or otherwise, in the course of its service and as such does not retain any personal data from its users. Certain personal data are collected by Google Analytics, and FrontierQueue.es uses this data inside the Google Analytics app to monitor website usage and performance. The data which are visible to FrontierQueue.es are anonymous and cannot be used to identify an individual. You can read the Google Analytics Privacy Policy <a href="https://support.google.com/accounts/answer/32050" target="_blank">here</a>.</li>
+                        <li>By using this website, you agree that the exclusions and limitations of liability set out in this website disclaimer are reasonable.</li>
+                        <li>FrontierQueue.es reserves the right to add to or change the terms of this agreement. It is your responsibility to refer to and comply with these terms on accessing FrontierQueue.es.
+                        </li>
+                    </ol>
                 </div>
             </div>
             <a href="#">
@@ -802,8 +806,15 @@
 
     </div>
 
-
     <script>
+        document.getElementById("theButton").onclick = function() {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                document.getElementById("textArea").innerHTML = "you are... " + position.coor$
+            });
+        }
+    </script>
+    <script>
+        ​
         var protocol = "HLS";
         var streamName = "fontierQueueEs";​
         // Step 1: Configure SDK Clients
@@ -860,7 +871,7 @@
                     console.log('Starting playback');
                 });
             });
-        });
+        });​
     </script>
     <script src="ui.js"></script>
 </body>
