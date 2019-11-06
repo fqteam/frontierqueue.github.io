@@ -211,7 +211,7 @@
 
         .lt-mainText {
             grid-area: lt-mainText;
-            font-size: 1.5rem!important;
+            font-size: 1.5rem;
         }
 
         .lt-A3 {
@@ -355,6 +355,10 @@
         }
 
         @media only screen and (max-width: 1000px) {
+            .btn {
+                font-size: 2rem !important;
+            }
+
             .lt-grid-container {
                 display: grid;
                 width: 90%;
@@ -372,7 +376,8 @@
                 width: 100%;
             }
 
-            .lt-A3,.lt-A2 {
+            .lt-A3,
+            .lt-A2 {
                 display: none;
             }
 
@@ -682,7 +687,7 @@
         <div class="lt-mainText">
             <h1>24/7 Live Video Stream</h1>
             <p>Check the status of the vehicle queue from Spain into Gibraltar.</p>
-            <p>Something wrong? <a href="mailto:info@frontierqueue.es">Let us know</a></p>
+            <p>Something wrong? <a href="mailto:info@frontierqueue.es" style="color:#999;">Let us know</a></p>
         </div>
         <div class="lt-A3"><a class="btn" href="mailto:info@frontierqueue.es">Advertise here</a></div>
         <div class="lt-moreText"></div>
